@@ -5,4 +5,4 @@
 ## Pages
 
 - [马尔可夫决定过程（MDP）](https://christina2cher.github.io/Blog/posts/DMP.llms.md)
-- [STEINS;GATE](https://christina2cher.github.io/Blog/index.llms.md)
+- [1.130426%](https://christina2cher.github.io/Blog/index.llms.md)
