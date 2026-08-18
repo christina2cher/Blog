@@ -1,30 +1,30 @@
 [
   {
+    "objectID": "posts/DMP.html",
+    "href": "posts/DMP.html",
+    "title": "马尔可夫决定过程（MDP）",
+    "section": "",
+    "text": "回到顶部"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Hello, Quarto",
+    "title": "STEINS;GATE",
     "section": "",
-    "text": "Markdown is an easy to read and write text format:\n\nIt’s plain text so works well with version control\nIt can be rendered into HTML, PDF, and more\nLearn more at: https://quarto.org/docs/authoring/"
+    "text": "在这里，我会定期分享自己在机器学习相关领域的学习心得和实践经验。希望这些内容能够对你有所启发。"
   },
   {
-    "objectID": "index.html#markdown",
-    "href": "index.html#markdown",
-    "title": "Hello, Quarto",
+    "objectID": "index.html#トゥットゥルー",
+    "href": "index.html#トゥットゥルー",
+    "title": "STEINS;GATE",
     "section": "",
-    "text": "Markdown is an easy to read and write text format:\n\nIt’s plain text so works well with version control\nIt can be rendered into HTML, PDF, and more\nLearn more at: https://quarto.org/docs/authoring/"
+    "text": "在这里，我会定期分享自己在机器学习相关领域的学习心得和实践经验。希望这些内容能够对你有所启发。"
   },
   {
-    "objectID": "index.html#code-cell",
-    "href": "index.html#code-cell",
-    "title": "Hello, Quarto",
-    "section": "Code Cell",
-    "text": "Code Cell\nHere is a Python code cell:\n\nimport os\nos.cpu_count()\n\n24"
-  },
-  {
-    "objectID": "index.html#equation",
-    "href": "index.html#equation",
-    "title": "Hello, Quarto",
-    "section": "Equation",
-    "text": "Equation\nUse LaTeX to write equations:\n\\[\n\\chi' = \\sum_{i=1}^n k_i s_i^2\n\\]"
+    "objectID": "index.html#最新文章推荐",
+    "href": "index.html#最新文章推荐",
+    "title": "STEINS;GATE",
+    "section": "📚 最新文章推荐",
+    "text": "📚 最新文章推荐\n\n\n   \n    \n    \n      排序方式\n      默认\n      \n        标题\n      \n      \n        日期 - 日期升序\n      \n      \n        日期 - 日期降序\n      \n      \n        作者\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n马尔可夫决定过程（MDP）\n\n\n\n数学基础\n\n\n\n这是一篇帮助新手理解马尔可夫决定过程的数学基础的指南。\n\n\n\n牧瀬 紅莉栖\n\n\n2026年8月18日\n\n\n\n\n\n\n无匹配项"
   }
 ]
