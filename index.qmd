@@ -1,29 +1,25 @@
 ---
-title: "Hello, Quarto"
-format: html
+title: "STEINS;GATE"
+subtitle: "1.130426%"
+toc: false
+page-navigation: false
+listing:
+  id: latest-posts
+  contents: posts
+  sort: "date desc"      
+  type: grid     
+  grid-columns: 3
+  image-height: 220px     
+  categories: true       
+  sort-ui: true          
+  filter-ui: true        
+---
+## 👋 トゥットゥルー！
+
+在这里，我会定期分享自己在机器学习相关领域的学习心得和实践经验。希望这些内容能够对你有所启发。
+
 ---
 
-## Markdown
-
-Markdown is an easy to read and write text format:
-
-- It's _plain text_ so works well with version control
-- It can be **rendered** into HTML, PDF, and more
-- Learn more at: <https://quarto.org/docs/authoring/>
-
-## Code Cell
-
-Here is a Python code cell:
-
-```{python}
-import os
-os.cpu_count()
-```
-
-## Equation
-
-Use LaTeX to write equations:
-
-$$
-\chi' = \sum_{i=1}^n k_i s_i^2
-$$
+## 📚 最新文章推荐
+::: {#latest-posts}
+:::

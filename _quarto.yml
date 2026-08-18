@@ -1,3 +1,65 @@
 project:
   type: website
   output-dir: docs
+
+lang: zh-CN
+
+website:
+  title: "El Psy Kongroo"
+  description: "Operation Skuld"
+
+  search: false
+
+  reader-mode: true
+  back-to-top-navigation: true
+
+  navbar:
+    background: dark
+    pinned: true
+
+    left:
+      - text: "首页"
+        href: index.qmd
+
+  page-footer:
+    left: "© El Psy Kongroo"
+    right: "Built with [Quarto](https://quarto.org/)"
+    border: true
+
+  open-graph: true
+  twitter-card: true
+
+  llms-txt: true
+
+format:
+  html:
+    theme:
+      light: flatly
+      dark: darkly
+
+    respect-user-color-scheme: true
+    toc: true
+    toc-title: "本文大纲"     
+    toc-depth: 3  
+    toc-expand: 2
+
+    html-math-method: mathjax
+
+    code-fold: true
+    code-summary: "展开查看代码" 
+    code-line-numbers: true  
+    code-copy: true  
+    code-overflow: wrap        
+    fig-align: center
+    fig-cap-location: bottom
+    tbl-cap-location: top
+    lightbox: true
+
+    citations-hover: true
+    footnotes-hover: true
+    crossrefs-hover: true
+
+    canonical-url: true
+
+execute:
+  freeze: auto

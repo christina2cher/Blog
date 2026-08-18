@@ -1,0 +1,8 @@
+# El Psy Kongroo
+
+> Operation Skuld
+
+## Pages
+
+- [欢迎来到牧瀬紅莉栖（伪）的个人博客](index.llms.md)
+- [马尔可夫决定过程（MDP）](DMP.llms.md)
