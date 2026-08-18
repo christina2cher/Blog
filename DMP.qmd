@@ -1,0 +1,18 @@
+---
+title: "马尔可夫决定过程（MDP）"
+subtitle: "基础概念明晰"
+description: "这是一篇帮助新手理解马尔可夫决定过程的数学基础的指南。"
+author: "牧瀬 紅莉栖"
+date: "2026-08-18"
+categories: [数学基础]
+format:
+  html:
+    theme: darkly            # 换成炫酷的暗黑主题
+    toc: true                # 开启目录
+    toc-title: "目录导航"     # 目录变成中文
+    toc-depth: 3             # 目录支持三级标题
+    code-fold: true          # 代码折叠
+    code-summary: "显示代码"  # 折叠按钮提示语
+    code-line-numbers: true  # 显示代码行号
+    code-copy: true          # 开启一键复制
+---
