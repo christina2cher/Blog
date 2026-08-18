@@ -1,0 +1,343 @@
+/*-- scss:defaults --*/
+
+$primary: #9f3d4a;
+
+$font-family-sans-serif:
+  "Noto Sans SC",
+  "Noto Sans JP",
+  "Microsoft YaHei",
+  "Yu Gothic UI",
+  system-ui,
+  sans-serif;
+
+$font-family-monospace:
+  "JetBrains Mono",
+  "Cascadia Code",
+  "SFMono-Regular",
+  monospace;
+
+$font-size-root: 17px;
+$line-height-base: 1.75;
+$border-radius: 0.9rem;
+
+$grid-body-width: 860px;
+$grid-margin-width: 260px;
+
+
+/*-- scss:rules --*/
+
+:root {
+  --lab-red: #9f3d4a;
+  --ink: #252329;
+  --muted: #6f6971;
+  --paper: #fbfaf7;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  letter-spacing: 0.005em;
+}
+
+body.quarto-light {
+  background-color: var(--paper);
+}
+
+body.quarto-dark {
+  background-color: #111216;
+}
+
+
+/* 导航栏 */
+
+.navbar {
+  background: rgba(23, 24, 28, 0.94) !important;
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+}
+
+.navbar-brand,
+.navbar-title {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+
+/* 首页首屏 */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: clamp(2rem, 6vw, 5rem);
+
+  margin: 1.5rem 0 4rem;
+  padding: clamp(2rem, 5vw, 4rem);
+
+  border-radius: 24px;
+}
+
+body.quarto-light .hero {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(159, 61, 74, 0.10),
+      rgba(255, 255, 255, 0.75)
+    );
+  border: 1px solid rgba(159, 61, 74, 0.14);
+}
+
+body.quarto-dark .hero {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(159, 61, 74, 0.22),
+      rgba(27, 28, 34, 0.90)
+    );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero-kicker {
+  margin-bottom: 0.8rem;
+
+  color: var(--lab-red);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.hero-title {
+  margin: 0 0 1.25rem;
+
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
+  font-weight: 750;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.hero-copy > p:not(.hero-kicker) {
+  max-width: 38rem;
+  margin-bottom: 1.8rem;
+  font-size: 1.08rem;
+}
+
+.hero-art img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(28, 20, 24, 0.20);
+}
+
+
+/* 文章列表 */
+
+.section-title {
+  margin-bottom: 1.5rem;
+  font-weight: 750;
+  letter-spacing: -0.025em;
+}
+
+.quarto-grid-item {
+  overflow: hidden;
+
+  border: 1px solid rgba(120, 110, 115, 0.16) !important;
+  border-radius: 18px;
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+body.quarto-light .quarto-grid-item {
+  background: rgba(255, 255, 255, 0.78);
+}
+
+body.quarto-dark .quarto-grid-item {
+  background: #1a1b20;
+}
+
+.quarto-grid-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(159, 61, 74, 0.45) !important;
+  box-shadow: 0 16px 40px rgba(25, 20, 23, 0.12);
+}
+
+.quarto-grid-item .card-img-top,
+.quarto-grid-item .thumbnail-image {
+  width: 100%;
+  object-fit: cover;
+}
+
+.quarto-grid-item .card-body {
+  padding: 1.35rem;
+}
+
+.listing-title {
+  font-size: 1.25rem;
+  font-weight: 720;
+}
+
+.listing-description {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+
+/* 正文细节 */
+
+h2 {
+  margin-top: 2.8rem;
+  letter-spacing: -0.025em;
+}
+
+pre.sourceCode {
+  border: 0;
+  border-radius: 14px;
+  box-shadow: inset 3px 0 var(--lab-red);
+}
+
+.math.display {
+  overflow-x: auto;
+  padding: 0.5rem 0;
+}
+
+blockquote {
+  padding: 0.8rem 1.2rem;
+  border-left: 3px solid var(--lab-red);
+}
+
+
+/* 移动端 */
+
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 1.6rem;
+    margin-top: 0.6rem;
+  }
+
+  .hero-title {
+    font-size: 2.35rem;
+  }
+
+  .hero-art img {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/*-- scss:rules --*/
+body:has(.quarto-reader-toggle.reader) #quarto-margin-sidebar,
+#quarto-margin-sidebar:empty {
+  display: none !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+/* 右上角工具按钮 */
+.navbar .quarto-navbar-tools {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* 按钮外观 */
+.navbar .quarto-navbar-tools .quarto-navigation-tool {
+  display: inline-grid !important;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0 !important;
+
+  color: rgba(255, 255, 255, 0.78) !important;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 0.7rem;
+
+  text-decoration: none;
+  opacity: 1;
+  transition:
+    color 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.navbar .quarto-navbar-tools .quarto-navigation-tool:hover {
+  color: #7ee2c8 !important;
+  background: rgba(71, 207, 172, 0.12);
+  border-color: rgba(71, 207, 172, 0.25);
+  transform: translateY(-1px);
+}
+
+.navbar .quarto-navbar-tools .quarto-navigation-tool:focus-visible {
+  outline: 2px solid rgba(71, 207, 172, 0.7);
+  outline-offset: 2px;
+}
+
+/* 去掉阅读模式默认的灰色方块 */
+.navbar .quarto-reader-toggle .quarto-reader-toggle-btn {
+  display: grid !important;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+  border-radius: inherit !important;
+}
+
+/* 使用 Quarto 自带的 Bootstrap Icons */
+.navbar .quarto-color-scheme-toggle .bi::before,
+.navbar .quarto-reader-toggle .bi::before {
+  display: block;
+  width: auto;
+  height: auto;
+
+  background-image: none !important;
+  font-family: "bootstrap-icons" !important;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* 浅色模式显示月亮 */
+body.quarto-light
+  .navbar
+  .quarto-color-scheme-toggle
+  .bi::before {
+  content: "\f497";
+}
+
+/* 深色模式显示太阳 */
+body.quarto-dark
+  .navbar
+  .quarto-color-scheme-toggle
+  .bi::before {
+  content: "\f5a2";
+}
+
+/* 阅读模式使用书本图标 */
+.navbar .quarto-reader-toggle .bi::before {
+  content: "\f194";
+}
+
+/* 阅读模式开启状态 */
+.navbar .quarto-reader-toggle.reader {
+  color: #7ee2c8 !important;
+  background: rgba(71, 207, 172, 0.16) !important;
+  border-color: rgba(71, 207, 172, 0.35) !important;
+}
+
+/* 预留滚动条空间，避免页面切换时左右抖动 */
+html {
+  scrollbar-gutter: stable;
+}
+
+@supports not (scrollbar-gutter: stable) {
+  html {
+    overflow-y: scroll;
+  }
+}

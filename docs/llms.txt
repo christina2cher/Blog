@@ -4,5 +4,5 @@
 
 ## Pages
 
-- [欢迎来到牧瀬紅莉栖（伪）的个人博客](index.llms.md)
-- [马尔可夫决定过程（MDP）](DMP.llms.md)
+- [马尔可夫决定过程（MDP）](https://christina2cher.github.io/Blog/posts/DMP.llms.md)
+- [STEINS;GATE](https://christina2cher.github.io/Blog/index.llms.md)

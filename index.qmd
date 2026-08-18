@@ -1,6 +1,7 @@
 ---
-title: "STEINS;GATE"
-subtitle: "1.130426%"
+title: "1.130426%"
+title-block-style: none
+body-classes: home-page
 toc: false
 page-navigation: false
 listing:
@@ -14,12 +15,30 @@ listing:
   sort-ui: true          
   filter-ui: true        
 ---
-## 👋 トゥットゥルー！
 
-在这里，我会定期分享自己在机器学习相关领域的学习心得和实践经验。希望这些内容能够对你有所启发。
+:::: {.hero}
 
----
+::: {.hero-copy}
 
-## 📚 最新文章推荐
+<p class="hero-kicker">OPERATION SKULD</p>
+
+# 👋 トゥットゥルー！
+
+分享机器学习相关领域的学习心得和实践经验。希望这些内容能够对你有所启发。
+
+:::
+
+::: {.hero-art}
+
+<img
+  src="images/future-gadget-lab-hero.png"
+  alt="未来道具实验室全景"
+/>
+:::
+
+::::
+
+## 📚 最新文章 {.section-title}
+
 ::: {#latest-posts}
 :::

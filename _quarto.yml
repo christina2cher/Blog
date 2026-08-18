@@ -7,19 +7,15 @@ lang: zh-CN
 website:
   title: "El Psy Kongroo"
   description: "Operation Skuld"
+  site-url: "https://christina2cher.github.io/Blog/"
 
   search: false
-
   reader-mode: true
   back-to-top-navigation: true
 
   navbar:
-    background: dark
+    background: "#17181c"
     pinned: true
-
-    left:
-      - text: "首页"
-        href: index.qmd
 
   page-footer:
     left: "© El Psy Kongroo"
@@ -34,8 +30,8 @@ website:
 format:
   html:
     theme:
-      light: flatly
-      dark: darkly
+      light: [flatly, styles.scss]
+      dark: [darkly, styles.scss]
 
     respect-user-color-scheme: true
     toc: true
