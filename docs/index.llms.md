@@ -2,13 +2,13 @@
 
 OPERATION SKULD
 
-# 👋 トゥットゥルー！
+# トゥットゥルー！
 
 分享机器学习相关领域的学习心得和实践经验。希望这些内容能够对你有所启发。
 
 ![未来道具实验室全景](images/future-gadget-lab-hero.png)
 
-## 📚 最新文章
+## 最新文章
 
 ![DMP 文章封面](./images/kurisu-assistant-cover.png)
 

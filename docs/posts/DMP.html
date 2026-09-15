@@ -44,9 +44,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-aade1d1e26614e4db2b58c1098f35f4b.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-4c5ceddcb2ec992e3feabc9db5dbbd1c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-6e0f7f2e120e6ba35dbb0b76097abf1d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-4c5ceddcb2ec992e3feabc9db5dbbd1c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e645300628e58311ae2f35e670dcb16e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-a6435c1d0607c6ff9268b4c5e4d9808a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-e645300628e58311ae2f35e670dcb16e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "没有结果",
@@ -62,6 +62,263 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "搜索"
   }
 }</script>
+<script>
+/* Read before first paint; preferences stay local to this browser. */
+(() => {
+  'use strict';
+  const themes = [
+    ['kurisu', '牧濑 红莉栖', '酒红 · 暖白'],
+    ['hitagi', '战场原 黑仪', '冷紫 · 雾灰'],
+    ['victorique', '维多利加', '墨绿 · 古金'],
+    ['holo', '赫萝', '麦金 · 赤陶']
+  ];
+  const views = [['large', '大卡片'], ['medium', '中卡片'], ['small', '小卡片'], ['text', '纯文字']];
+  const root = document.documentElement;
+  const reducedMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const icons = {
+    large: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M11 4v16M14 9h4M14 13h4"/>',
+    medium: '<rect x="3" y="4" width="7" height="16" rx="1.5"/><rect x="14" y="4" width="7" height="16" rx="1.5"/>',
+    small: '<rect x="3" y="4" width="4" height="16" rx="1"/><rect x="10" y="4" width="4" height="16" rx="1"/><rect x="17" y="4" width="4" height="16" rx="1"/>',
+    text: '<path d="M7 6h14M7 12h14M7 18h14M3 6h.01M3 12h.01M3 18h.01"/>'
+  };
+  const read = (key, options, fallback) => {
+    try {
+      const value = localStorage.getItem(key);
+      return options.some(([id]) => id === value) ? value : fallback;
+    } catch { return fallback; }
+  };
+  const save = (key, value) => { try { localStorage.setItem(key, value); } catch { /* Session-only when storage is blocked. */ } };
+  root.dataset.siteTheme = read('blog-theme', themes, 'kurisu');
+  root.dataset.articleView = read('blog-article-view', views, 'large');
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const tools = document.querySelector('.quarto-navbar-tools');
+    const reader = document.querySelector('.quarto-reader-toggle');
+    if (reader) {
+      reader.querySelector('.quarto-reader-toggle-btn').insertAdjacentHTML('beforeend', '<svg class="reader-closed-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h13v18H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M4 17a2 2 0 0 1 2-2h13M8 3v12"/></svg>');
+      const syncReader = () => {
+        const active = reader.classList.contains('reader');
+        reader.setAttribute('aria-pressed', String(active));
+        reader.setAttribute('aria-label', active ? '退出阅读模式' : '进入阅读模式');
+        reader.title = active ? '退出阅读模式' : '进入阅读模式';
+      };
+      syncReader();
+      new MutationObserver(syncReader).observe(reader, { attributes: true, attributeFilter: ['class'] });
+    }
+    if (tools) {
+      const picker = document.createElement('details');
+      picker.className = 'theme-picker';
+      picker.innerHTML = `<summary aria-label="选择网站主题" title="选择网站主题"><span class="theme-icon-wrap" aria-hidden="true"><svg class="theme-icon theme-palette-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="theme-palette-surface" d="M12 3a9 9 0 1 0 0 18h1.1a2 2 0 0 0 1.4-3.4 1.4 1.4 0 0 1 1-2.4H17a4 4 0 0 0 4-4C21 6.6 17 3 12 3Z"/><g fill="currentColor" stroke="none"><circle cx="7.5" cy="10" r="1.15"/><circle cx="11" cy="7" r="1.15"/><circle cx="15.5" cy="8" r="1.15"/></g></svg></span></summary>
+        <div class="theme-panel" role="group" aria-label="网站主题"><p class="theme-panel-title">网站主题</p>${themes.map(([id, name, note]) => `<button type="button" data-theme-choice="${id}" aria-pressed="false"><svg class="theme-swatch theme-swatch-${id}" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="var(--swatch-first)"/><path d="M16 1A15 15 0 0 1 16 31Z" fill="var(--swatch-second)"/><circle cx="16" cy="16" r="15" fill="none" stroke="currentColor" stroke-opacity=".2"/></svg><span class="theme-name"><strong>${name}</strong><small>${note}</small></span><i class="bi bi-check2" aria-hidden="true"></i></button>`).join('')}</div>`;
+      tools.prepend(picker);
+      const summary = picker.querySelector('summary');
+      const closePicker = () => { picker.open = false; };
+      summary.addEventListener('click', event => {
+        if (picker.open) { event.preventDefault(); closePicker(); }
+      });
+      const syncTheme = () => picker.querySelectorAll('[data-theme-choice]').forEach(button => {
+        button.setAttribute('aria-pressed', String(button.dataset.themeChoice === root.dataset.siteTheme));
+      });
+      syncTheme();
+      picker.addEventListener('click', event => {
+        const button = event.target.closest('[data-theme-choice]');
+        if (!button) return;
+        const changed = root.dataset.siteTheme !== button.dataset.themeChoice;
+        root.dataset.siteTheme = button.dataset.themeChoice;
+        save('blog-theme', root.dataset.siteTheme);
+        syncTheme();
+        closePicker();
+        summary.focus();
+      });
+      picker.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+          closePicker();
+          summary.focus();
+        }
+      });
+      document.addEventListener('click', event => { if (!picker.contains(event.target) && picker.open) closePicker(); });
+    }
+
+    const listing = document.querySelector('#listing-latest-posts');
+    const actions = listing?.querySelector('.listing-actions-group');
+    if (actions) {
+      const control = document.createElement('div');
+      control.className = 'listing-view-controls';
+      control.innerHTML = `<div class="view-options" role="group" aria-label="文章展示方式"><span class="view-indicator" aria-hidden="true"></span>${views.map(([id, name]) => `<button type="button" data-view-choice="${id}" aria-pressed="false" aria-label="${id === 'text' ? '纯文字标题列表' : name}" title="${id === 'text' ? '纯文字标题列表' : name}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icons[id]}</svg></button>`).join('')}</div>`;
+      actions.append(control);
+      const syncView = () => { control.querySelector('.view-options').style.setProperty('--view-index', views.findIndex(([id]) => id === root.dataset.articleView)); control.querySelectorAll('[data-view-choice]').forEach(button => {
+        button.setAttribute('aria-pressed', String(button.dataset.viewChoice === root.dataset.articleView));
+      }); };
+      syncView();
+      const chooseView = id => {
+        const previous = views.findIndex(([id]) => id === root.dataset.articleView);
+        const next = views.findIndex(([value]) => value === id);
+        if (previous === next) {
+          syncView();
+          return;
+        }
+        const list = listing.querySelector('.list');
+        const cards = list ? [...list.querySelectorAll('.quarto-grid-link')] : [];
+        const firstRects = new Map(cards.map(card => [card, card.getBoundingClientRect()]));
+        root.dataset.articleView = id;
+        save('blog-article-view', root.dataset.articleView);
+        syncView();
+        if (reducedMotion() || !cards.length) return;
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          cards.forEach(card => {
+            if (!card.isConnected) return;
+            const first = firstRects.get(card);
+            const last = card.getBoundingClientRect();
+            if (!first || !last.width || !last.height) return;
+            const rawDx = first.left - last.left;
+            const rawDy = first.top - last.top;
+            const rawSx = first.width / last.width;
+            const rawSy = first.height / last.height;
+            if (Math.abs(rawDx) < 0.5 && Math.abs(rawDy) < 0.5 && Math.abs(rawSx - 1) < 0.005 && Math.abs(rawSy - 1) < 0.005) return;
+            // Keep the transition quiet: a small lift and fade, without elastic scaling.
+            const dx = Math.max(-12, Math.min(12, rawDx * 0.08));
+            const dy = Math.max(-10, Math.min(10, rawDy * 0.08));
+            card.getAnimations().forEach(animation => animation.cancel());
+            card.animate([
+              { opacity: 0.93, transform: `translate3d(${dx}px, ${dy}px, 0)` },
+              { opacity: 1, transform: 'translate3d(0, 0, 0)' }
+            ], { duration: 280, easing: 'cubic-bezier(.25,.8,.25,1)', fill: 'both' });
+          });
+        }));
+      };
+      const track = control.querySelector('.view-options');
+      let drag = null;
+      let suppressClick = false;
+      const followDrag = state => {
+        if (state.raf) return;
+        const follow = () => {
+          if (drag !== state) { state.raf = 0; return; }
+          const delta = state.target - state.display;
+          if (Math.abs(delta) < 0.002) {
+            state.display = state.target;
+            track.style.setProperty('--view-index', state.display.toFixed(3));
+            state.raf = 0;
+            return;
+          }
+          state.display += delta * 0.22;
+          track.style.setProperty('--view-index', state.display.toFixed(3));
+          state.raf = requestAnimationFrame(follow);
+        };
+        state.raf = requestAnimationFrame(follow);
+      };
+      control.addEventListener('click', event => {
+        if (suppressClick) { suppressClick = false; return; }
+        const button = event.target.closest('[data-view-choice]');
+        if (button) chooseView(button.dataset.viewChoice);
+      });
+      track.addEventListener('pointerdown', event => {
+        if (!event.isPrimary || event.button !== 0) return;
+        const index = views.findIndex(([id]) => id === root.dataset.articleView);
+        drag = { pointerId: event.pointerId, x: event.clientX, moved: false, target: index, display: index, raf: 0 };
+      });
+      track.addEventListener('pointermove', event => {
+        if (!drag || drag.pointerId !== event.pointerId) return;
+        if (!drag.moved && Math.abs(event.clientX - drag.x) < 5) return;
+        drag.moved = true;
+        if (!track.hasPointerCapture(event.pointerId)) track.setPointerCapture(event.pointerId);
+        track.classList.add('is-dragging');
+        const bounds = track.getBoundingClientRect();
+        const width = (track.clientWidth - 8) / 4;
+        if (!Number.isFinite(width) || width <= 0) return;
+        drag.target = Math.max(0, Math.min(3, (event.clientX - bounds.left - 5) / width - 0.5));
+        followDrag(drag);
+      });
+      const endDrag = event => {
+        if (!drag || drag.pointerId !== event.pointerId) return;
+        const completed = drag;
+        drag = null;
+        if (completed.raf) cancelAnimationFrame(completed.raf);
+        completed.raf = 0;
+        track.classList.remove('is-dragging');
+        if (track.hasPointerCapture(event.pointerId)) track.releasePointerCapture(event.pointerId);
+        if (completed.moved && event.type === 'pointerup') {
+          const index = Math.round(completed.target);
+          chooseView(views[index][0]);
+          control.querySelector(`[data-view-choice="${views[index][0]}"]`).focus({ preventScroll: true });
+          suppressClick = true;
+          setTimeout(() => { suppressClick = false; }, 0);
+        } else syncView();
+      };
+      track.addEventListener('pointerup', endDrag);
+      track.addEventListener('pointercancel', endDrag);
+      track.addEventListener('lostpointercapture', event => {
+        if (drag && drag.pointerId === event.pointerId) endDrag({ type: 'pointercancel', pointerId: event.pointerId });
+      });
+      track.addEventListener('pointerleave', () => { if (drag && !drag.moved) drag = null; });
+      track.addEventListener('keydown', event => {
+        const current = views.findIndex(([id]) => id === root.dataset.articleView);
+        const next = { ArrowLeft: Math.max(0, current - 1), ArrowRight: Math.min(3, current + 1), Home: 0, End: 3 }[event.key];
+        if (next === undefined) return;
+        event.preventDefault();
+        chooseView(views[next][0]);
+        control.querySelector(`[data-view-choice="${views[next][0]}"]`).focus();
+      });
+      const search = actions.querySelector('input.search');
+      if (search) {
+        search.setAttribute('aria-label', '搜索文章');
+        search.placeholder = '';
+        search.title = '搜索文章';
+        const filter = search.closest('.quarto-listing-filter');
+        filter.querySelector('.input-group-text').addEventListener('click', () => search.focus());
+        actions.prepend(filter);
+      }
+      const nativeSort = actions.querySelector('.quarto-listing-sort select');
+      if (nativeSort) {
+        const holder = nativeSort.parentElement;
+        nativeSort.hidden = true;
+        holder.querySelector('.input-group-text').hidden = true;
+        holder.classList.add('custom-sort');
+        const sort = document.createElement('details');
+        sort.className = 'sort-picker';
+        const labels = { index: '默认顺序', 'listing-title': '标题顺序', 'listing-author': '作者顺序' };
+        const choices = [...nativeSort.options].filter(option => !option.disabled);
+        sort.innerHTML = `<summary aria-label="文章排序" title="文章排序"><i class="bi bi-sort-down" aria-hidden="true"></i></summary><div class="sort-panel" role="group" aria-label="文章排序">${choices.map(option => `<button type="button" data-sort-index="${option.index}" aria-pressed="false"><span>${labels[option.value] || (option.dataset.direction === 'desc' ? '最新发布优先' : '最早发布优先')}</span><i class="bi bi-check2" aria-hidden="true"></i></button>`).join('')}</div>`;
+        holder.append(sort);
+        const syncSort = () => sort.querySelectorAll('[data-sort-index]').forEach(button => button.setAttribute('aria-pressed', String(Number(button.dataset.sortIndex) === nativeSort.selectedIndex)));
+        // The generated list already uses its configured default order.
+        nativeSort.selectedIndex = choices.find(option => option.value === 'index').index;
+        syncSort();
+        nativeSort.addEventListener('change', syncSort);
+        sort.addEventListener('click', event => {
+          const button = event.target.closest('[data-sort-index]');
+          if (!button) return;
+          nativeSort.selectedIndex = Number(button.dataset.sortIndex);
+          nativeSort.dispatchEvent(new Event('change', { bubbles: true }));
+          sort.open = false;
+          sort.querySelector('summary').focus();
+        });
+        sort.addEventListener('keydown', event => {
+          if (event.key === 'Escape') { sort.open = false; sort.querySelector('summary').focus(); }
+          if (['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(event.key)) {
+            event.preventDefault();
+            sort.open = true;
+            const buttons = [...sort.querySelectorAll('button')];
+            const index = buttons.indexOf(document.activeElement);
+            const next = event.key === 'Home' ? 0 : event.key === 'End' ? buttons.length - 1 : (index + (event.key === 'ArrowUp' ? -1 : 1) + buttons.length) % buttons.length;
+            buttons[next].focus();
+          }
+        });
+        sort.addEventListener('toggle', () => {
+        });
+        sort.querySelector('.sort-panel').addEventListener('pointerover', event => {
+          const option = event.target.closest('button');
+          if (!option) return;
+          sort.querySelectorAll('button').forEach(button => button.removeAttribute('data-hover'));
+          option.setAttribute('data-hover', 'true');
+        });
+        sort.querySelector('.sort-panel').addEventListener('pointerleave', () => sort.querySelectorAll('button').forEach(button => button.removeAttribute('data-hover')));
+        document.addEventListener('click', event => { if (!sort.contains(event.target)) sort.open = false; });
+      }
+    }
+  });
+})();
+
+</script>
 
 
 <meta property="og:title" content="马尔可夫决定过程（MDP） – El Psy Kongroo">

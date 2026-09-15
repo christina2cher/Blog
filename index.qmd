@@ -7,13 +7,14 @@ page-navigation: false
 listing:
   id: latest-posts
   contents: posts
-  sort: "date desc"      
-  type: grid     
+  sort: "date desc"
+  type: grid
   grid-columns: 3
-  image-height: 220px     
-  categories: true       
-  sort-ui: true          
-  filter-ui: true        
+  image-height: 220px
+  categories: false
+  fields: [image, title, categories, description, author, date]
+  sort-ui: true
+  filter-ui: true
 ---
 
 :::: {.hero}
@@ -22,7 +23,7 @@ listing:
 
 <p class="hero-kicker">OPERATION SKULD</p>
 
-# 👋 トゥットゥルー！
+# トゥットゥルー！
 
 分享机器学习相关领域的学习心得和实践经验。希望这些内容能够对你有所启发。
 
@@ -38,7 +39,7 @@ listing:
 
 ::::
 
-## 📚 最新文章 {.section-title}
+## 最新文章 {.section-title}
 
 ::: {#latest-posts}
 :::

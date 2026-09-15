@@ -1,2 +1,17 @@
 /.quarto/
 **/*.quarto_ipynb
+
+# Local Python environment and caches
+/.venv/
+__pycache__/
+*.py[cod]
+
+# Legacy standalone Quarto output (the website is built into docs/)
+/DMP_files/
+
+# Local preview and visual verification
+/.preview/
+
+# Operating system files
+.DS_Store
+Thumbs.db
